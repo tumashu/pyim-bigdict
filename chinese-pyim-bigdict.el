@@ -44,7 +44,7 @@
                    `(:name ,pyim-bigdict-name
                            :file ,dict-file
                            :coding utf-8-unix))
-      (message "激活Chinese-pyim输入法词库: （%s） " pyim-bigdict-name))))
+      (message "添加Chinese-pyim输入法词库: (%s)，重启 emacs 后生效！" pyim-bigdict-name))))
 
 (provide 'chinese-pyim-bigdict)
 
