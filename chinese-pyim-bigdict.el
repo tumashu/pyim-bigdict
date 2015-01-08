@@ -4,6 +4,7 @@
 ;;
 ;; Author: Feng Shu <tumashu@gmail.com>
 ;; URL: https://github.com/tumashu/chinese-pyim
+;; Package-Requires: ((cl-lib "0.5"))
 ;; Version: 0.0.1
 
 ;; This program is free software; you can redistribute it and/or modify
@@ -25,14 +26,15 @@
 ;; 仅供个人使用，主要用于测试 Chinese-pyim 添加大词库后的表现。
 
 ;;; Code:
+(require 'cl-lib)
 
 (defconst pyim-bigdict-name "BigDict001")
 
 (defun pyim-dict-available-p (dictname)
-  (some (lambda (x)
-          (let ((name (plist-get x :name)))
-            (string= name dictname)))
-        pyim-dicts))
+  (cl-some (lambda (x)
+             (let ((name (plist-get x :name)))
+               (string= name dictname)))
+           pyim-dicts))
 
 (defun chinese-pyim-bigdict-enable ()
   (interactive)
