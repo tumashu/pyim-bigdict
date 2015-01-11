@@ -30,6 +30,7 @@
 (require 'cl-lib)
 (require 'chinese-pyim)
 
+;;;###autoload
 (defun chinese-pyim-add-pydict:bigdict ()
   (interactive)
   (let ((dict-name "Big-Dict")
