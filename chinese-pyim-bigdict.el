@@ -37,7 +37,7 @@
                (string= name dictname)))
            pyim-dicts))
 
-(defun chinese-pyim-bigdict-enable ()
+(defun chinese-pyim-add-pydict:bigdict ()
   (interactive)
   (let ((dict-file (concat (file-name-directory
                             (locate-library "chinese-pyim-bigdict.el")) "pyim-bigdict.txt")))
