@@ -38,7 +38,7 @@
                             (locate-library "chinese-pyim-bigdict.el"))
                            "pyim-bigdict.txt")))
     (when (and (file-exists-p dict-file)
-               (not (pyim-dict-available-p dict-name)))
+               (not (pyim-dict-name-available-p dict-name)))
       (add-to-list 'pyim-dicts
                    `(:name ,dict-name
                            :file ,dict-file
