@@ -35,7 +35,8 @@
   (interactive)
   (let ((dict-name "Big-Dict")
         (dict-file (concat (file-name-directory
-                            (locate-library "chinese-pyim-bigdict.el")) "pyim-bigdict.txt")))
+                            (locate-library "chinese-pyim-bigdict.el"))
+                           "pyim-bigdict.txt")))
     (when (and (file-exists-p dict-file)
                (not (pyim-dict-available-p dict-name)))
       (add-to-list 'pyim-dicts
