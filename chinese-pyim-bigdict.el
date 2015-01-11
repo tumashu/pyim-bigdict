@@ -39,7 +39,7 @@
     (when (and (file-exists-p dict-file)
                (not (pyim-dict-available-p dict-name)))
       (add-to-list 'pyim-dicts
-                   `(:name ,pyim-bigdict-name
+                   `(:name ,dict-name
                            :file ,dict-file
                            :coding utf-8-unix))
       ;; 将`pyim-dict'的设置保存到emacs配置文件中。
