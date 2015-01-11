@@ -28,26 +28,22 @@
 
 ;;; Code:
 (require 'cl-lib)
-
-(defconst pyim-bigdict-name "BigDict001")
-
-(defun pyim-dict-available-p (dictname)
-  (cl-some (lambda (x)
-             (let ((name (plist-get x :name)))
-               (string= name dictname)))
-           pyim-dicts))
+(require 'chinese-pyim)
 
 (defun chinese-pyim-add-pydict:bigdict ()
   (interactive)
-  (let ((dict-file (concat (file-name-directory
+  (let ((dict-name "Big-Dict")
+        (dict-file (concat (file-name-directory
                             (locate-library "chinese-pyim-bigdict.el")) "pyim-bigdict.txt")))
     (when (and (file-exists-p dict-file)
-               (not (pyim-dict-available-p pyim-bigdict-name)))
+               (not (pyim-dict-available-p dict-name)))
       (add-to-list 'pyim-dicts
                    `(:name ,pyim-bigdict-name
                            :file ,dict-file
                            :coding utf-8-unix))
-      (message "添加Chinese-pyim输入法词库: (%s)，重启 emacs 后生效！" pyim-bigdict-name))))
+      ;; 将`pyim-dict'的设置保存到emacs配置文件中。
+      (customize-save-variable 'pyim-dicts pyim-dicts)
+      (message "添加并保存 Chinese-pyim 输入法词库: (%s)，重启 emacs 后生效！" dict-name))))
 
 (provide 'chinese-pyim-bigdict)
 
